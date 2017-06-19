@@ -29,7 +29,7 @@ def word_frequency(str, word):
 '''Input: string
 Output: array
 This funtion takes a string of text, turns it into the array in the first function,
-matches terms and deletes repeats to create array of unique words.'''
+matches terms and deletes repeats to create array of unique words.  '''
 def unique_words(str):
     arr = text_clean(str)
     for word in arr:
