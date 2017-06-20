@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import string
 
-class total_word_count:
 
+class TotalWordCount:
+    
     def __init__(self, text):
         self.text = text
         self.word_array = []
         self.unique_words = []
-        self.list_frequency = {}
+        self.dict_word_freq = {}
 
     def text_clean(self):
         self.text = self.text.lower()
@@ -48,7 +49,7 @@ class total_word_count:
 
     def frequency_unique_words(self):
         for word in self.unique_words:
-            self.list_frequency[word] = (self.word_array.count(word))
+            self.dict_word_freq[word] = (self.word_array.count(word))
             print word, self.word_array.count(word)
 
     # Total word count
@@ -56,10 +57,11 @@ class total_word_count:
         len(self.text)
 
     def total_wc(self):
-        dict = self.frequency_unique_words()
+        self.frequency_unique_words()
         count = 0
-        for key in dict:
-            count += dict[key]
+        for key in self.dict_word_freq:
+            count += self.dict_word_freq[key]
+
 
 def main():
 
@@ -76,7 +78,7 @@ def main():
     """
     text = text.replace('\n', ' ').replace('\r', '')
 
-    twc = total_word_count(text)
+    twc = TotalWordCount(text)
     twc.text_clean()
     print "This is the frequency of the word near: %s." % twc.word_frequency("near")
     print "This is the total number of unique words: %d." % twc.get_unique_words()
@@ -86,10 +88,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
